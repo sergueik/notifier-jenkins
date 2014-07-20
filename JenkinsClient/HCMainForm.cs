@@ -52,13 +52,16 @@ namespace HudsonClient
 
                 search.Filter = "(SAMAccountName=" + username + ")";
 
-                SearchResult sas = search.FindOne();
-
-                foreach (object property in sas.Properties["givenName"])
+                SearchResult sas = null;
+                // sas = search.FindOne();
+                if (sas != null)
                 {
-                    AdvancedSettings.Default.UserName = property.ToString();
-                    AdvancedSettings.Default.Save();
-                    ldapTimer.Enabled = false;
+                    foreach (object property in sas.Properties["givenName"])
+                    {
+                        AdvancedSettings.Default.UserName = property.ToString();
+                        AdvancedSettings.Default.Save();
+                        ldapTimer.Enabled = false;
+                    }
                 }
             }
             else

@@ -1,0 +1,15 @@
+/bin
+/.settings
+# Jenkins plugin development
+/work
+# Maven build files
+/target
+/pom.xml.releaseBackup
+/release.properties
+/settings.xml
+*.unc-backup~
+*.uncrustify
+
+build/
+nbbuild/
+dist/
